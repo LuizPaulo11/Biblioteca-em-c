@@ -10,7 +10,7 @@ void inicializarLivros(Livro livros[], int tamanho) {
     }
 }
 
-
+//funcao cadastrar livro
 void cadastrarLivro(Livro livros[], int *qtdLivros) {
     int pos = *qtdLivros;
     printf("\n=== Cadastro de Livro ===\n");
@@ -46,14 +46,14 @@ void cadastrarLivro(Livro livros[], int *qtdLivros) {
     int c; while ((c = getchar()) != '\n' && c != EOF) {}
     printf("Livro cadastrado com sucesso!\n");
 }
-
+//funcao buscar livro pelo codigo
 int buscarLivroPorCodigo(const Livro livros[], int qtdLivros, int codigo) {
     for (int i = 0; i < qtdLivros; i++) {
         if (livros[i].codigo == codigo) return i;
     }
     return -1;
 }
-
+// funcao pesquisar usario atravez do titulo
 void pesquisarLivroPorTitulo(const Livro livros[], int qtdLivros, const char *titulo) {
     int achou = 0;
     for (int i = 0; i < qtdLivros; i++) {
@@ -65,7 +65,7 @@ void pesquisarLivroPorTitulo(const Livro livros[], int qtdLivros, const char *ti
     }
     if (!achou) printf("Nenhum livro encontrado com título contendo '%s'.\n", titulo);
 }
-
+// funcao pesquisar usuario atravez do nome do autor no livro
 void pesquisarLivroPorAutor(const Livro livros[], int qtdLivros, const char *autor) {
     int achou = 0;
     for (int i = 0; i < qtdLivros; i++) {
@@ -77,7 +77,7 @@ void pesquisarLivroPorAutor(const Livro livros[], int qtdLivros, const char *aut
     }
     if (!achou) printf("Nenhum livro encontrado com autor contendo '%s'.\n", autor);
 }
-
+// funcao  cria um relatorio de livros mais emprestados
 void relatorioLivrosMaisEmprestados(const Livro livros[], int qtdLivros) {
     if (qtdLivros == 0) { printf("Nenhum livro cadastrado.\n"); return; }
 
@@ -104,7 +104,7 @@ void relatorioLivrosMaisEmprestados(const Livro livros[], int qtdLivros) {
     }
     if (!mostrou) printf("Nenhum empréstimo registrado ainda.\n");
 }
-
+// logica menu
 void pesquisarLivroMenu(const Livro livros[], int qtdLivros) {
     int op;
     printf("\nPesquisar livro por:\n1 - Código\n2 - Título\n3 - Autor\nEscolha: ");

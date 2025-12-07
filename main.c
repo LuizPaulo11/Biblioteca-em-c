@@ -4,30 +4,30 @@
 #include "src/livro.h"
 #include "src/emprestimo.h"
 
-#define MAX_USUARIOS 100
-#define MAX_LIVROS 100
-#define MAX_EMPRESTIMOS 200
-
+#define MAX_USUARIOS 100 // define o maximo de usuario
+#define MAX_LIVROS 100 // define o maximo de livros
+#define MAX_EMPRESTIMOS 200 // define quantidade maxima de emprestimo
+ 
 static void limpar_buffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF) { }
 }
-
+// main o cereblo da aplicacao
 int main(void) {
-    Usuario usuarios[MAX_USUARIOS];
+    Usuario usuarios[MAX_USUARIOS]; 
     Livro livros[MAX_LIVROS];
     Emprestimo emprestimos[MAX_EMPRESTIMOS];
 
     size_t qtdUsuarios = 0;
     int qtdLivros = 0;
     int qtdEmprestimos = 0;
-
+    // importante para passar as variaveis definidas anteriormente
     inicializarUsuarios(usuarios, MAX_USUARIOS);
     inicializarLivros(livros, MAX_LIVROS);
     inicializarEmprestimo(emprestimos, MAX_EMPRESTIMOS);
 
     int opcao = -1;
-
+    // imprime as funcionalidades do menu
     while (opcao != 0) {
         printf("\n===== SISTEMA DA BIBLIOTECA =====\n");
         printf("1  - Cadastrar livro\n");
@@ -49,7 +49,7 @@ int main(void) {
             continue;
         }
         limpar_buffer();
-
+        // swith case o principal para a logica de menu
         switch (opcao) {
             case 1:
                 cadastrarLivro(livros, &qtdLivros);

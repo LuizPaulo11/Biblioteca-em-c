@@ -51,7 +51,7 @@ static int findEmprestimoIndexByCodigo(Emprestimo emprestimos[], int qtdEmpresti
 }
 
 /* ---------------- implementação ---------------- */
-
+// inicializar com valores padrao
 void inicializarEmprestimo(Emprestimo emprestimos[], int tamanho) {
     for (int i = 0; i < tamanho; i++) {
         emprestimos[i].codigoemprestimo = 0;
@@ -67,7 +67,7 @@ void inicializarEmprestimo(Emprestimo emprestimos[], int tamanho) {
         emprestimos[i].renovacoes = 0;
     }
 }
-
+//funcao para realizar emprestimo
 void realizarEmprestimo(Emprestimo emprestimos[], int *qtdEmprestimos, int maxEmprestimos,
                         Usuario usuarios[], int qtdUsuarios, Livro livros[], int qtdLivros) {
 
@@ -116,7 +116,7 @@ void realizarEmprestimo(Emprestimo emprestimos[], int *qtdEmprestimos, int maxEm
     int c; while ((c = getchar()) != '\n' && c != EOF) {}
     printf("Empréstimo registrado com sucesso! Código: %d\n", emprestimos[pos].codigoemprestimo);
 }
-
+// funcao responsavel pela logica de devolucao de emprestimo
 void devolverEmprestimo(Emprestimo emprestimos[], int qtdEmprestimos, Livro livros[], int qtdLivros) {
     int codigo;
     printf("\nDigite o código do empréstimo a devolver: ");
@@ -137,7 +137,7 @@ void devolverEmprestimo(Emprestimo emprestimos[], int qtdEmprestimos, Livro livr
     int c; while ((c = getchar()) != '\n' && c != EOF) {}
     printf("Empréstimo %d devolvido com sucesso.\n", codigo);
 }
-
+// funcao responsavel pela logica de renovação do emprestimo
 void renovarEmprestimo(Emprestimo emprestimos[], int qtdEmprestimos, Livro livros[], int qtdLivros) {
     int codigo;
     printf("\nDigite o código do empréstimo para renovar: ");
@@ -165,7 +165,7 @@ void renovarEmprestimo(Emprestimo emprestimos[], int qtdEmprestimos, Livro livro
            emprestimos[idx].data_devolucao_prevista.ano,
            emprestimos[idx].renovacoes);
 }
-
+//funcao responsavel para listar emprestimos ativos
 void listarEmprestimosAtivos(Emprestimo emprestimos[], int qtdEmprestimos,
                              Usuario usuarios[], int qtdUsuarios, Livro livros[], int qtdLivros) {
     printf("\n=== Empréstimos Ativos ===\n");
@@ -185,7 +185,7 @@ void listarEmprestimosAtivos(Emprestimo emprestimos[], int qtdEmprestimos,
     }
     if (!encontrou) printf("Nenhum empréstimo ativo.\n");
 }
-
+// funcao para listar relatorios dos usuarios atrasados
 void relatorioUsuariosAtrasados(Emprestimo emprestimos[], int qtdEmprestimos, Usuario usuarios[], int qtdUsuarios) {
     time_t agora = time(NULL);
     int encontrou = 0;

@@ -2,13 +2,13 @@
 #include <string.h>
 #include <time.h>
 #include "emprestimo.h"
-
+// responsavel por inicializar usuario
 void inicializarUsuarios(Usuario usuario[], size_t tamanho) {
     for (int i = 0; i < tamanho; i++) {
         memset(&usuario[i], 0, sizeof(Usuario));
     }
 }
-
+// duncao logica cadastro usuario
 void cadastrarUsuario(Usuario usuarios[], size_t *qtdUsuarios, size_t maxUsuarios) {
     if (*qtdUsuarios >= maxUsuarios) {
         printf("Não é possível cadastrar mais usuários (limite atingido).\n");
@@ -48,7 +48,7 @@ void cadastrarUsuario(Usuario usuarios[], size_t *qtdUsuarios, size_t maxUsuario
     (*qtdUsuarios)++;
     printf("Usuário cadastrado com sucesso!\n");
 }
-
+//funcao logica para pesquisar usuario por matricula
 void pesquisarUsuarioPorMatricula(const Usuario usuarios[], size_t qtdUsuarios, int matricula) {
     for (size_t i = 0; i < qtdUsuarios; i++) {
         if (usuarios[i].matricula == matricula) {
@@ -66,7 +66,7 @@ void pesquisarUsuarioPorMatricula(const Usuario usuarios[], size_t qtdUsuarios, 
     }
     printf("Usuário com matrícula %d não encontrado.\n", matricula);
 }
-
+// funcao com logica para pesquisar usuario por nome
 void pesquisarUsuarioPorNome(const Usuario usuarios[], size_t qtdUsuarios, const char *nome) {
     int achou = 0;
     for (size_t i = 0; i < qtdUsuarios; i++) {
@@ -77,7 +77,7 @@ void pesquisarUsuarioPorNome(const Usuario usuarios[], size_t qtdUsuarios, const
     }
     if (!achou) printf("Nenhum usuário encontrado contendo '%s'.\n", nome);
 }
-
+// funcao com logica do menu
 void pesquisarUsuarioMenu(const Usuario usuarios[], size_t qtdUsuarios) {
     int op;
     printf("\nPesquisar usuário por:\n1 - Matrícula\n2 - Nome\nEscolha: ");
